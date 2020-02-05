@@ -31,6 +31,6 @@ app.use('/auth', authRouter)
 
 app.use('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../front/build/index.html'))
-}
+})
 
 module.exports = app;
