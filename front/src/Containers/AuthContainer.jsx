@@ -20,7 +20,7 @@ class AuthContainer extends React.Component {
 
   signupUser = async () => {
     try {
-      await axios.post('/auth/signup', this.state)
+      await axios.post('/api/auth/signup', this.state)
       this.logInUser()
     } catch (err) {
       console.log('ERROR', err)
@@ -29,7 +29,7 @@ class AuthContainer extends React.Component {
 
   loginUser = async () => {
     try {
-      const { data } = await axios.post('/auth/login', this.state)
+      const { data } = await axios.post('/api/auth/login', this.state)
       this.props.setUser(data.payload)
       this.props.history.push('/users')
     } catch (err) {

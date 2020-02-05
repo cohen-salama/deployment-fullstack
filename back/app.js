@@ -1,3 +1,4 @@
+require('dotenv').config()
 var express = require('express');
 var session = require('express-session')
 var passport = require('./auth/passport')
@@ -27,8 +28,8 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 //app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/auth', authRouter)
+app.use('/api/users', usersRouter);
+app.use('/api/auth', authRouter)
 
 app.use('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../front/build/index.html'))

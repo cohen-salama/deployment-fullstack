@@ -12,7 +12,7 @@ class Users extends Component {
 
   async componentDidMount() {
     try {
-      let { data } = await axios.get('/users')
+      let { data } = await axios.get('/api/users')
       this.setState({ users: data.payload })
     } catch (err) {
       console.log('ERROR', err)
