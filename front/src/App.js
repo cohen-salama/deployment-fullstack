@@ -14,7 +14,6 @@ class App extends React.Component {
     isUserLoggedIn: false
   }
 
-
   setUser = (user) => {
     this.setState({
       user: user,
@@ -25,7 +24,11 @@ class App extends React.Component {
   checkUserLoggedIn = async () => {
     try {
       const { data } = await axios.get('/auth/isUserLoggedIn')
-      this.setUser(data.payload)
+      if (data.payload) {
+        this.setUser(data.payload)
+      } else {
+        return
+      }
     } catch (err) {
       console.log('ERROR', err)
     }
@@ -49,6 +52,7 @@ class App extends React.Component {
   }
 
   renderAuthContainer = (routeProps) => {
+    console.log('auth')
     return (
       <AuthContainer setUser={this.setUser} isUserLoggedIn={this.state.isUserLoggedIn} {...routeProps}/>
     )

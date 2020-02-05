@@ -58,7 +58,7 @@ class AuthContainer extends React.Component {
   }
 
   render() {
-    if (this.props.isUserLoggedIn) {
+    if (!this.props.isUserLoggedIn) {
       return (
         <div>
           <h2>AuthContainer</h2>
